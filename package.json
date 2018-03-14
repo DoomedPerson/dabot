@@ -1,6 +1,6 @@
 {
   "name": "DaBot",
-  "description": "hi there",
+  "description": "HiThere",
   "version": "0.0.0",
   "main": "CommandHandler.js",
   "scripts": {
