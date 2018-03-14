@@ -5,5 +5,8 @@
   "main": "CommandHandler.js",
   "scripts": {
     "start": "node CommandHandler.js"
+  },
+  "dependencies": {
+    "discord.js": "11.1.0"
   }
 }
