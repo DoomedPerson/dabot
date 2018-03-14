@@ -1,7 +1,7 @@
 {
   "name": "DaBot",
   "description": "hi there",
-  "version": 0.0.0,
+  "version": "0.0.0",
   "main": "CommandHandler.js",
   "scripts": {
     "start": "node CommandHandler.js"
