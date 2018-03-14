@@ -47,4 +47,4 @@ client.on('ready', () => {
 })
 
 // Log into the discord bot.
-client.login('process.env.NDE2NzgzMzIxMTIxNDIzMzcw.DXJf8w.D7T4TfUAxaXqPmUP1I_qevxqNWY') // Token
+client.login('process.env.BOT_TOKEN') // Token
