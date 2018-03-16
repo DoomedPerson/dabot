@@ -1,1 +1,1 @@
-worker: node CommandHandler.js
+worker node CommandHandler.js
