@@ -134,8 +134,10 @@ client.on('message', message => {
         }
     }
     
-    if (message.guild.voiceConnection) {
-        message.guild.voiceConnection.disconnect();
+    if (messagecontent === "!leave") {
+        if (message.guild.voiceConnection) {
+            message.guild.voiceConnection.disconnect();
+        }
     }
 }); 
 
