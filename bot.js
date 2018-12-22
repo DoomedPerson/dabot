@@ -120,22 +120,26 @@ client.on('message', message => {
     
     if (messagecontent === "!join") {
         let adminRoleObject = member.guild.roles.find('name', 'Host');
-        if (member.voiceChannel) {
-            member.voiceChannel.join()
-                .then(connection =>
-                      message.reply("Joined voice channel!")
-                })
-        }
-        else
-        {
-            message.reply("You must be in a voice channel to start hosting.")   
+        if (adminRoleObject) {
+            if (member.voiceChannel) {
+                member.voiceChannel.join()
+                    .then(connection =>
+                          message.reply("Joined voice channel!")
+                    })
+            }
+            else
+            {
+                message.reply("You must be in a voice channel to start hosting.")   
+            }
         }
     }
     
     if (messagecontent === "!leave") {
         let adminRoleObject = member.guild.roles.find('name', 'Host');
-        if (message.guild.voiceConnection) {
-            message.guild.voiceConnection.disconnect();
+        if (adminRoleObject) {
+            if (message.guild.voiceConnection) {
+                message.guild.voiceConnection.disconnect();
+            }
         }
     }
 }); 
