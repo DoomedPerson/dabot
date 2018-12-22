@@ -133,6 +133,10 @@ client.on('message', message => {
             message.reply("You must be in a voice channel to start hosting.")   
         }
     }
+    
+    if (message.guild.voiceConnection) {
+        message.guild.voiceConnection.disconnect();
+    }
 }); 
 
 // THIS  MUST  BE  THIS  WAY
