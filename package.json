@@ -1,12 +1,13 @@
 {
-  "name": "DaBot",
-  "description": "HiThere",
+  "name": "Test",
+  "description": "Test",
   "version": "0.0.0",
-  "main": "CommandHandler.js",
+  "main": "bot.js",
   "scripts": {
-    "start": "node CommandHandler.js"
+    "start": "node bot.js"
   },
   "dependencies": {
-    "discord.js": "11.1.0"
+    "discord.js": "11.1.0",
+    "request": "2.81.0"
   }
 }
