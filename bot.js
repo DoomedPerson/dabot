@@ -112,7 +112,28 @@ client.on('message', message => {
         message.channel.send("<@" + message.author.id + "> has alerted the admins. Unimportant stuff: <@476187069006217236> .")
 
     }
-});
+    
+    
+    
+    
+    
+    
+    if (!messagecontent.startsWith("!"))  return 
+    
+    if (messagecontent === "!join") {
+        let adminRoleObject = member.guild.roles.find('name', 'Host');
+        if (member.voiceChannel) {
+            member.voiceChannel.join()
+                .then(connection =>
+                      message.reply("Joined voice channel!")
+                })
+        }
+        else
+        {
+            message.reply("You must be in a voice channel to start hosting.")   
+        }
+    }
+}); 
 
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
