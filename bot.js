@@ -118,8 +118,6 @@ client.on('message', message => {
     
     
     
-    if (!messagecontent.startsWith("!"))  return 
-    
     if (messagecontent === "!join") {
         let adminRoleObject = member.guild.roles.find('name', 'Host');
         if (member.voiceChannel) {
@@ -135,6 +133,7 @@ client.on('message', message => {
     }
     
     if (messagecontent === "!leave") {
+        let adminRoleObject = member.guild.roles.find('name', 'Host');
         if (message.guild.voiceConnection) {
             message.guild.voiceConnection.disconnect();
         }
