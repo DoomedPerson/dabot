@@ -20,11 +20,11 @@ client.on('message', message => {
     if (messagecontent === "!join") {
         let adminRoleObject = member.guild.roles.find('name', 'Host');
         if (adminRoleObject) {
-                const channel = member.voiceChannel;
-                message.reply(member.channel)
-                channel.join()
-                //.then(connection => message.reply("ugly boy"))
-                //.catch(message.reply("error"));
+            const channel = member.voiceChannel;
+            
+            channel.join()
+            //.then(connection => message.reply("ugly boy"))
+            //.catch(message.reply("error"));
         }
     }
     
