@@ -20,8 +20,8 @@ client.on('message', message => {
         if (adminRoleObject) {
             if (member.voiceChannel) {
                 member.voiceChannel.join()
-                    .then(connection =>{
-                          message.reply("Joined voice channel!")
+                    .then(connection => message.reply("Joined voice channel!"))
+                    .catch(console.error);n() 
                 })
             }
             else
