@@ -23,7 +23,7 @@ client.on('message', message => {
                 const channel = member.voiceChannel;
                 message.reply(member.channel)
                 channel.join()
-                .then(connection => message.reply("ugly boy"))
+                //.then(connection => message.reply("ugly boy"))
                 //.catch(message.reply("error"));
         }
     }
