@@ -50,9 +50,9 @@ client.on('message', message => {
 
         voiceChannel.leave();
             message.channel.sendMessage('song finished')
-        }).catch(e =>{
-            console.error(e);
-        });
+        }).catch{
+            message.reply("/tts hey guys i failed")
+        };
     }
 }); 
 
