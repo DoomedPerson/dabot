@@ -21,7 +21,6 @@ client.on('message', message => {
         let adminRoleObject = member.guild.roles.find('name', 'Host');
         if (adminRoleObject) {
             if (message.member.voiceChannel) {
-                const channel = member.voiceChannel;
 
                 message.member.voiceChannel.join()
                 //.then(connection => message.reply("ugly boy"))
