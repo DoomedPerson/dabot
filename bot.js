@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-var FFMPEG = require('ffmpeg');
+var Ffempg = require('ffmpeg');
 
 
 
@@ -22,8 +22,9 @@ client.on('message', message => {
         let adminRoleObject = member.guild.roles.find('name', 'Host');
         if (adminRoleObject) {
             if (message.member.voiceChannel) {
-
-                message.member.voiceChannel.join()
+                message.member.voiceChannel.join().then(function(connection) {
+                    message.reply("hey baby u looking hot")
+                }
                 //.then(connection => message.reply("ugly boy"))
                 //.catch(message.reply("error"));
             }
