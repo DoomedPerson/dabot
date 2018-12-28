@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-npm install ffmpeg
+var ffmpeg = require('ffmpeg');
 
 
 
