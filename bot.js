@@ -45,7 +45,7 @@ client.on('message', message => {
         server = message.server
         client = client.voice_client_in(server)
         const dispatcher = message.guild.voiceConnection.playStream("https://www.youtube.com/watch?v=EYFUnNtEaM8", {audioonly: true});
-        const dispatcher = connection.playStream(stream, {audioonly: true});
+
         dispatcher.on('end', () => {
 
         voiceChannel.leave();
