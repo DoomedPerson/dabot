@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const FFmpeg = require('FFmpeg');
+const ffmpeg = require('ffmpeg');
 
 
 
