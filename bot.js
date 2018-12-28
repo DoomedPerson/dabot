@@ -49,16 +49,18 @@ client.on('message', message => {
     }
     
     if (messagecontent.slice(0, 5) === "!play") {
-        
-        const messageURL = message.content.slice(5, messagecontent.length)
-        message.reply(messageURL)
-        if (messageURL.search("youtube")) {
-            const dispatcher = message.guild.voiceConnection.playStream(yt(messageURL, {audioonly: true}))
-            try {
-              message.reply("Success")
-            }
-            catch {
-              message.reply("Fail")
+        if (message.guild.voiceConnection) {
+            const messageURL = message.content.slice(5, messagecontent.length)
+            message.reply(messageURL)
+            if (messageURL.search("youtube")) {
+
+                const dispatcher = message.guild.voiceConnection.playStream(yt(messageURL, {audioonly: true}))
+                try {
+                  message.reply("Success")
+                }
+                catch {
+                  message.reply("Fail")
+                }
             }
         }
     }
