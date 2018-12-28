@@ -56,7 +56,7 @@ client.on('message', message => {
             try {
               message.reply("Success")
             }
-            catch(err) {
+            catch() {
               message.reply("Fail")
             }
         }
