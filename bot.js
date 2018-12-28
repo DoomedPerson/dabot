@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const FFMPEG = require('ffmpeg');
-const ytdl = require('ytdl-core');
+const yt = require('ytdl-core');
 
 
 
@@ -44,7 +44,15 @@ client.on('message', message => {
     if (messagecontent === "!startscrim solo west") {
         server = message.server
         client = client.voice_client_in(server)
-        server.dispatcher = message.guild.voiceConnection.playStream(YTDL(filter: "audioonly"))
+        const dispatcher = message.guild.voiceConnection.playStream("https://www.youtube.com/watch?v=EYFUnNtEaM8", {audioonly: true});
+        const dispatcher = connection.playStream(stream, {audioonly: true});
+        dispatcher.on('end', () => {
+
+        voiceChannel.leave();
+            message.channel.sendMessage('you really sexy')
+        }).catch(e =>{
+            console.error(e);
+        });
     }
 }); 
 
