@@ -23,9 +23,9 @@ client.on('message', message => {
         if (adminRoleObject) {
                 const channel = member.voiceChannel;
 
-                  channel.join()
-                  .then(connection => message.reply("ugly boy"))
-                  .catch(message.reply("error"));
+                channel.join()
+                .then(connection => message.reply("ugly boy"))
+                //.catch(message.reply("error"));
         }
     }
     
