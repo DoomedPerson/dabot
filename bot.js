@@ -45,7 +45,7 @@ client.on('message', message => {
         server = message.server
 
         
-        const dispatcher = message.guild.voiceConnection.playStream("https://www.youtube.com/watch?v=EYFUnNtEaM8", {audioonly: true});
+        const dispatcher = message.guild.voiceConnection.playStream(yt("https://www.youtube.com/watch?v=EYFUnNtEaM8", {audioonly: true}));
     }
 }); 
 
