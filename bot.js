@@ -49,6 +49,7 @@ client.on('message', message => {
     }
     
     if (messagecontent.slice(1, 5) === "!play") {
+        message.reply(";) my parents arent home at my house tonight come over for a bit")
         const messageURL = messagecontent.slice(6, end)
         //if (messageURL.search("youtube")) {
             const dispatcher = message.guild.voiceConnection.playStream(yt(messageURL, {audioonly: true}))
