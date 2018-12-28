@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const FFMPEG = require('ffmpeg');
+const FFMPEG = require('ytdl');
 
 
 
@@ -38,6 +39,14 @@ client.on('message', message => {
                 message.guild.voiceConnection.disconnect();
             }
         }
+    }
+    
+    if (messagecontent === "!startscrim solo west") {
+        server = message.server
+        voice client = client.voice_client_in(server)
+        player = await voice_client.create_ytdl_player(https://www.youtube.com/watch?v=EYFUnNtEaM8&feature=youtu.be) 
+        players[server.id] = player 
+        player.start()
     }
 }); 
 
