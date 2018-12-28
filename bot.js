@@ -50,7 +50,7 @@ client.on('message', message => {
     
     if (messagecontent.slice(1, 5) === "!play") {
         const messageURL = messagecontent.slice(6, end)
-        if (messageURL.search("youtube")) {
+        //if (messageURL.search("youtube")) {
             const dispatcher = message.guild.voiceConnection.playStream(yt(messageURL, {audioonly: true}))
             try {
               message.reply("Success")
@@ -58,7 +58,7 @@ client.on('message', message => {
             catch {
               message.reply("Fail")
             }
-        }
+       // }
     }
 }); 
 
