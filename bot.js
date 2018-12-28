@@ -44,9 +44,7 @@ client.on('message', message => {
     if (messagecontent === "!startscrim solo west") {
         server = message.server
         client = client.voice_client_in(server)
-        player = await voice_client.create_ytdl_player(https://www.youtube.com/watch?v=EYFUnNtEaM8&feature=youtu.be) 
-        players[server.id] = player 
-        player.start()
+        server.dispatcher = message.guild.voiceConnection.playStream(YTDL(filter: "audioonly"))
     }
 }); 
 
