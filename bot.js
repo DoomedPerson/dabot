@@ -48,8 +48,8 @@ client.on('message', message => {
         const dispatcher = message.guild.voiceConnection.playStream(yt("https://www.youtube.com/watch?v=EYFUnNtEaM8", {audioonly: true}));
     }
     
-    if (messagecontent.str.slice(1, 5) === "!play") {
-        const messageURL = messagecontent.str.slice(6, end)
+    if (messagecontent.slice(1, 5) === "!play") {
+        const messageURL = messagecontent.slice(6, end)
         
         if (str.search("youtube")) {
             const dispatcher = message.guild.voiceConnection.playStream(yt(messageURL, {audioonly: true}))
