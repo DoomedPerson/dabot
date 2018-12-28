@@ -52,7 +52,13 @@ client.on('message', message => {
         const messageURL = messagecontent.str.slice(6, end)
         
         if (str.search("youtube")) {
-            const dispatcher = message.guild.voiceConnection.playStream(yt(messageURL, {audioonly: true}));
+            const dispatcher = message.guild.voiceConnection.playStream(yt(messageURL, {audioonly: true}))
+            try {
+              message.reply("Success")
+            }
+            catch(err) {
+              message.reply("Fail")
+            }
         }
     }
 }); 
