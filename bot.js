@@ -21,7 +21,7 @@ client.on('message', message => {
             if (member.voiceChannel) {
                 member.voiceChannel.join()
                     .then(connection => message.reply("Joined voice channel!"))
-                    .catch(console.error);n() 
+                    .catch(console.error);
             }
             else
             {
