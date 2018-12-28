@@ -24,7 +24,7 @@ client.on('message', message => {
             if (message.member.voiceChannel) {
                 message.member.voiceChannel.join().then(function(connection) {
                     message.reply("hey baby u looking hot")
-                }
+                });
                 //.then(connection => message.reply("ugly boy"))
                 //.catch(message.reply("error"));
             }
