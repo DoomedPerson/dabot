@@ -46,11 +46,6 @@ client.on('message', message => {
 
         
         const dispatcher = message.guild.voiceConnection.playStream("https://www.youtube.com/watch?v=EYFUnNtEaM8", {audioonly: true});
-        dispatcher.on('end', () => {
-
-        voiceChannel.leave();
-            message.channel.sendMessage('song finished')
-        })
     }
 }); 
 
