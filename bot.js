@@ -43,7 +43,6 @@ client.on('message', message => {
     
     if (messagecontent === "!startscrim solo west") {
         server = message.server
-        client = message.guild.voiceConnection(server)
         const dispatcher = message.guild.voiceConnection.playStream("https://www.youtube.com/watch?v=EYFUnNtEaM8", {audioonly: true});
 
         dispatcher.on('end', () => {
