@@ -50,9 +50,14 @@ client.on('message', message => {
         }
     } else if (messagecontent.startsWith(prefix+'startscrim')) {
         server = message.server
-
         
-        const dispatcher = message.guild.voiceConnection.playStream(yt("https://www.youtube.com/watch?v=EYFUnNtEaM8", {audioonly: true}));
+        if (args[1] === "solo") {
+            if (args[1] === "west")    {
+                const dispatcher = message.guild.voiceConnection.playStream(yt("https://www.youtube.com/watch?v=2I18638R4t4", {audioonly: true}));
+            }
+        }
+
+        return
     } else if (messagecontent.startsWith(prefix+'play')) {
         if (message.guild.voiceConnection) {
             var voiceChannel = message.member.voiceChannel
