@@ -87,16 +87,29 @@ client.on('message', message => {
         }
     } else if (messagecontent.startsWith(prefix+'volume')) {
         if (!args[1]) return message.channel.send('Current volume is: ' + serverQueue.volume)
-        Globdispatcher.setVolumeLogarithmic(args[1] / 5)
+        if (Globdispatcher) {
+            Globdispatcher.setVolumeLogarithmic(args[1] / 5)
+            return message.channel.send('Volume changed.')
+        }
         return undefined
     } else if (messagecontent.startsWith(prefix+'stop')) {
         let adminRoleObject = member.guild.roles.find('name', 'Admin');
         if (adminRoleObject) {
-            const dispatcher = Globdispatcher
-            dispatcher.end();
+            if (Globdispatcher) {
+                const dispatcher = Globdispatcher
+                dispatcher.end();
+            }
         }
+    } else if (messagecontent.startsWith(prefix+'pause')) {
+        if (!Globdispatcher) return
+        Globdispatcher.pause()
+    } else if (messagecontent.startsWith(prefix+'resume')) {
+        if (!Globdispatcher) return
+        Globdispatcher.resume()
     }
 }); 
 
+
+Globdispatcher.resume()
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
