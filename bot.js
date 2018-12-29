@@ -65,7 +65,7 @@ client.on('message', message => {
                 queue.set(message.guild.id, queueConstruct);
 
                 try {
-                    var connection = await voiceChannel.join();
+                    var connection = voiceChannel.join();
                     queueConstruct.connection = connection;
                 }
             }
