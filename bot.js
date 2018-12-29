@@ -16,8 +16,8 @@ client.on('ready', () => {
     client.user.setStatus('available') // Can be 'available', 'idle', 'dnd', or 'invisible'
     client.user.setPresence({
         game: {
-            name: 'thicccccc',
-            type: 4 // 1: Playing, 2: Listening, 3: Watching
+            name: 'to you.',
+            type: 2 // 1: Playing, 2: Listening, 3: Watching
         }
     });
 });
