@@ -91,7 +91,7 @@ client.on('message', message => {
             }
         }
     } else if (messagecontent.startsWith(prefix+'volume')) {
-        if (!args[1]) return message.channel.send('Current volume is: ' + serverQueue.volume/5)
+        if (!args[1]) return message.channel.send('Current volume is: ' + serverQueue.volume)
         if (Globdispatcher) {
             serverQueue.volume = args[1]
             Globdispatcher.setVolumeLogarithmic(args[1] / 5)
