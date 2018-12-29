@@ -64,11 +64,10 @@ client.on('message', message => {
                 }
                 queue.set(message.guild.id, queueConstruct);
 
-                try {
-                    var connection = voiceChannel.join();
-                    queueConstruct.connection = connection;
-                }
-                .catch(message.reply("error"))
+
+                var connection = voiceChannel.join();
+                queueConstruct.connection = connection;
+
             }
             const messageURL = message.content.slice(5, messagecontent.length)
             
