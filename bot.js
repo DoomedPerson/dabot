@@ -6,6 +6,7 @@ const yt = require('ytdl-core');
 const prefix = "!"
 
 const queue = new Map()
+const Globdispatcher = null
 
 
 
@@ -66,7 +67,7 @@ client.on('message', message => {
 
 
                 var connection = voiceChannel.join();
-                queueConstruct.connection = connection;
+                
 
             }
             const messageURL = message.content.slice(5, messagecontent.length)
@@ -74,6 +75,7 @@ client.on('message', message => {
             if (messageURL.search("https://youtube")) {
 
                 const dispatcher = message.guild.voiceConnection.playStream(yt(messageURL, {audioonly: true}))
+                Globdispatcher = dispatcher;
                 try {
                   message.reply("Success")
                 }
@@ -85,12 +87,12 @@ client.on('message', message => {
         }
     } else if (messagecontent.startsWith(prefix+'volume')) {
         if (!args[1]) return message.channel.send('Current volume is: ' + serverQueue.volume)
-        message.guild.VoiceConnection.setVolumeLogarithmic(args[1] / 5)
+        Globdispatcher.setVolumeLogarithmic(args[1] / 5)
         return undefined
     } else if (messagecontent.startsWith(prefix+'stop')) {
         let adminRoleObject = member.guild.roles.find('name', 'Admin');
         if (adminRoleObject) {
-            const dispatcher = message.guild.VoiceConnection
+            const dispatcher = Globdispatcher
             dispatcher.end();
         }
     }
