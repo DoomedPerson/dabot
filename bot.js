@@ -49,8 +49,9 @@ client.on('message', message => {
             }
         }
     } else if (messagecontent.startsWith(prefix+'startscrim')) {
+        message.reply(args[1] + ' : '+' : ' + args[2])
         if (args[1] === "solo") {
-            if (args[1] === "west")    {
+            if (args[2] === "west")    {
                 const dispatcher = message.guild.voiceConnection.playStream(yt("https://www.youtube.com/watch?v=2I18638R4t4", {audioonly: true}));
                 Globdispatcher = dispatcher;
                 try {
@@ -104,7 +105,7 @@ client.on('message', message => {
         Globdispatcher.resume();
     } else if (messagecontent.startsWith(prefix+'tts')) {
         message.channel.send('/tts '+ args[1])
-        return message.delete_message()
+        return message.delete(1000)
     }
 }); 
 // THIS  MUST  BE  THIS  WAY
