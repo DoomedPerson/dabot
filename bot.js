@@ -105,7 +105,7 @@ client.on('message', message => {
         Globdispatcher.pause()
     } else if (messagecontent.startsWith(prefix+'resume')) {
         if (!Globdispatcher) return
-        Globdispatcher.resume()
+        //Globdispatcher.resume()
     }
 }); 
 // THIS  MUST  BE  THIS  WAY
