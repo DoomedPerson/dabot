@@ -55,9 +55,7 @@ client.on('message', message => {
     } else if (messagecontent.startsWith(prefix+'play')) {
         if (message.guild.voiceConnection) {
             var voiceChannel = message.member.voiceChannel
-            message.reply("heyyy1")
             if (!serverQueue) {
-                message.reply("heyyy")
                 const queueConstruct = {
                     voiceChannel: voiceChannel,
                     connection: null,
@@ -87,12 +85,12 @@ client.on('message', message => {
         }
     } else if (messagecontent.startsWith(prefix+'volume')) {
         if (!args[1]) return message.channel.send('Current volume is: ' + serverQueue.volume)
-        serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 5)
+        message.guild.VoiceConnection.setVolumeLogarithmic(args[1] / 5)
         return undefined
     } else if (messagecontent.startsWith(prefix+'stop')) {
         let adminRoleObject = member.guild.roles.find('name', 'Admin');
         if (adminRoleObject) {
-            const dispatcher = message.guild.connection.dispatcher
+            const dispatcher = message.guild.VoiceConnection
             dispatcher.end();
         }
     }
