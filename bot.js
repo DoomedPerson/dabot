@@ -102,10 +102,11 @@ client.on('message', message => {
         }
     } else if (messagecontent.startsWith(prefix+'pause')) {
         if (!Globdispatcher) return
-        Globdispatcher.pause()
+        Globdispatcher.pause();
     } else if (messagecontent.startsWith(prefix+'resume')) {
         if (!Globdispatcher) return
-        //Globdispatcher.resume()
+        message.reply("heythere resume")
+        Globdispatcher.resume();
     }
 }); 
 // THIS  MUST  BE  THIS  WAY
