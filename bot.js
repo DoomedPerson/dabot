@@ -49,11 +49,16 @@ client.on('message', message => {
             }
         }
     } else if (messagecontent.startsWith(prefix+'startscrim')) {
-        server = message.server
-        
         if (args[1] === "solo") {
             if (args[1] === "west")    {
                 const dispatcher = message.guild.voiceConnection.playStream(yt("https://www.youtube.com/watch?v=2I18638R4t4", {audioonly: true}));
+                Globdispatcher = dispatcher;
+                try {
+                  message.reply("Success")
+                }
+                catch {
+                  message.reply("Fail")
+                }
             }
         }
 
@@ -61,20 +66,6 @@ client.on('message', message => {
     } else if (messagecontent.startsWith(prefix+'play')) {
         if (message.guild.voiceConnection) {
             var voiceChannel = message.member.voiceChannel
-            if (!serverQueue) {
-                const queueConstruct = {
-                    voiceChannel: voiceChannel,
-                    connection: null,
-                    volume: 5,
-                    playing: false
-                }
-                queue.set(message.guild.id, queueConstruct);
-
-
-                var connection = voiceChannel.join();
-                
-
-            }
             const messageURL = message.content.slice(5, messagecontent.length)
             
             if (messageURL.search("https://youtube")) {
