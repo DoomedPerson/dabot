@@ -27,7 +27,7 @@ client.on('message', message => {
     
     if (!serverQueue) {
         const queueConstruct = {
-            volume: 5
+            volume: 5,
             playing: false
         }
         serverQueue.set(msg.guild.id, queueConstruct);
