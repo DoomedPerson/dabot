@@ -30,7 +30,7 @@ client.on('message', message => {
             volume: 5,
             playing: false
         }
-        serverQueue.set(msg.guild.id, queueConstruct);
+        queue.set(message.guild.id, queueConstruct);
     }
     
     const args = messagecontent.split(' ');
