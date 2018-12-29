@@ -16,8 +16,8 @@ client.on('ready', () => {
     client.user.setStatus('available') // Can be 'available', 'idle', 'dnd', or 'invisible'
     client.user.setPresence({
         game: {
-            name: 'you! dab',
-            type: 3
+            name: 'thicccccc',
+            type: 2
         }
     });
 });
@@ -118,7 +118,6 @@ client.on('message', message => {
         if (args[1] > 100) return message.reply("please choose an amount under 100!")
         message.channel.bulkDelete(args[1])
     }
-}
 }); 
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
