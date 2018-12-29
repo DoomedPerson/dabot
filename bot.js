@@ -49,13 +49,13 @@ client.on('message', message => {
             }
         }
     } else if (messagecontent.startsWith(prefix+'startscrim')) {
-        message.reply(args[1] + ' : '+' : ' + args[2])
         if (args[1] === "solo") {
             if (args[2] === "west")    {
                 const dispatcher = message.guild.voiceConnection.playStream(yt("https://www.youtube.com/watch?v=2I18638R4t4", {audioonly: true}));
                 Globdispatcher = dispatcher;
+                dispatcher.setVolumeLogarithmic(7 / 5)
                 try {
-                  message.reply("Success")
+                  message.reply("Starting scrims!")
                 }
                 catch {
                   message.reply("Fail")
