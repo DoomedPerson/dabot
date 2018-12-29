@@ -4,8 +4,8 @@ const FFMPEG = require('ffmpeg');
 const yt = require('ytdl-core');
 
 const prefix = "!"
+var stats = {}
 
-const queue = new Map()
 var Globdispatcher = null
 
 
@@ -25,7 +25,13 @@ client.on('message', message => {
     let messagecontent = message.content.toLowerCase();
     
     
-    const serverQueue = queue.get(message.guild.id)
+    var serverQueue = stats[message.guild.id]
+    if (!serverQueue) {
+        serverQueue = {
+            [message.guild.id],
+            volume = 5
+        }
+    }
     
     
     const args = messagecontent.split(' ');
@@ -72,6 +78,7 @@ client.on('message', message => {
             if (messageURL.search("https://youtube")) {
 
                 const dispatcher = message.guild.voiceConnection.playStream(yt(messageURL, {audioonly: true}))
+                dispatcher.setVolumeLogarithmic(serverQueue.volume/5)
                 Globdispatcher = dispatcher;
                 try {
                   message.reply("Success")
@@ -83,8 +90,9 @@ client.on('message', message => {
             }
         }
     } else if (messagecontent.startsWith(prefix+'volume')) {
-        if (!args[1]) return message.channel.send('Current volume is: ' + serverQueue.volume)
+        if (!args[1]) return message.channel.send('Current volume is: ' + serverQueue.volume/5)
         if (Globdispatcher) {
+            serverQueue.volume = args[1]
             Globdispatcher.setVolumeLogarithmic(args[1] / 5)
             return message.channel.send('Volume changed.')
         }
