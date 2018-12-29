@@ -60,7 +60,7 @@ client.on('message', message => {
             if (args[2] === "west")    {
                 const dispatcher = message.guild.voiceConnection.playStream(yt("https://www.youtube.com/watch?v=2I18638R4t4", {audioonly: true}));
                 Globdispatcher = dispatcher;
-                dispatcher.setVolumeLogarithmic(7 / 5)
+                dispatcher.setVolumeLogarithmic(10 / 5)
                 try {
                   message.reply("Starting scrims!")
                 }
