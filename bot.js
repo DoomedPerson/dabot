@@ -6,7 +6,7 @@ const yt = require('ytdl-core');
 const prefix = "!"
 
 var stats = {}
-var serverQueue = null
+var serverQueue = {}
 
 var Globdispatcher = null
 
@@ -113,7 +113,12 @@ client.on('message', message => {
     } else if (messagecontent.startsWith(prefix+'resume')) {
         if (!Globdispatcher) return
         Globdispatcher.resume();
+    } else if (messagecontent.startsWith(prefix+'purge')) {
+        if (!args[1]) return
+        if (args[1] > 100) return message.reply("please choose an amount under 100!")
+        message.channel.bulkDelete(args[1])
     }
+}
 }); 
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
