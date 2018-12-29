@@ -22,16 +22,10 @@ client.on('ready', () => {
 client.on('message', message => {
     let member = message.member
     let messagecontent = message.content.toLowerCase();
+    
+    
     const serverQueue = queue.get(message.guild.id)
     
-    
-    if (!serverQueue) {
-        const queueConstruct = {
-            volume: 5,
-            playing: false
-        }
-        queue.set(message.guild.id, queueConstruct);
-    }
     
     const args = messagecontent.split(' ');
     
@@ -60,6 +54,21 @@ client.on('message', message => {
         const dispatcher = message.guild.voiceConnection.playStream(yt("https://www.youtube.com/watch?v=EYFUnNtEaM8", {audioonly: true}));
     } else if (messagecontent.startsWith(prefix+'play')) {
         if (message.guild.voiceConnection) {
+            var voiceChannel = message.member.voiceChannel
+            if (!serverQueue) {
+                const queueConstruct = {
+                    voiceChannel = voiceChannel,
+                    connection: null,
+                    volume: 5,
+                    playing: false
+                }
+                queue.set(message.guild.id, queueConstruct);
+
+                try {
+                    var connection = await voiceChannel.join();
+                    queueConstruct.connection = connection;
+                }
+            }
             const messageURL = message.content.slice(5, messagecontent.length)
             
             if (messageURL.search("https://youtube")) {
@@ -82,7 +91,7 @@ client.on('message', message => {
     } else if (messagecontent.startsWith(prefix+'stop')) {
         let adminRoleObject = member.guild.roles.find('name', 'Admin');
         if (adminRoleObject) {
-            const dispatcher = message.guild.voiceConnection
+            const dispatcher = message.guild.connection.dispatcher
             dispatcher.end();
         }
     }
