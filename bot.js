@@ -3,7 +3,9 @@ const client = new Discord.Client();
 const FFMPEG = require('ffmpeg');
 const yt = require('ytdl-core');
 
-cost prefix = "!"
+const prefix = "!"
+
+const queue = new Map()
 
 
 
@@ -20,6 +22,18 @@ client.on('ready', () => {
 client.on('message', message => {
     let member = message.member
     let messagecontent = message.content.toLowerCase();
+    const serverQueue = queue.get(message.guild.id)
+    
+    
+    if (!serverQueue) {
+        const queueConstruct = {
+            volume: 5
+            playing: false
+        }
+        serverQueue.set(msg.guild.id, queueConstruct);
+    }
+    
+    const args = messagecontent.split(' ');
     
     if (messagecontent.startsWith('$[prefix]join') {
         let adminRoleObject = member.guild.roles.find('name', 'Host');
@@ -57,10 +71,14 @@ client.on('message', message => {
                 catch {
                   message.reply("Fail")
                 }
+                
+                dispatcher.setVolumeLogarithnic(serverQueue.volume/5)
             }
         }
     } else if (messagecontent.startsWith('$[prefix]volume')) {
-        setVolumeLogarithmic(1)
+        if (!args[1]) return message.channel.send('Current volume is: ${serverQueue.volume}')
+        serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 5)
+        return undefined
     } else if (messagecontent.startsWith('$[prefix]stop')) {
         let adminRoleObject = member.guild.roles.find('name', 'Admin');
         if (adminRoleObject) {
