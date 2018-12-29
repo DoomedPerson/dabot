@@ -58,6 +58,7 @@ client.on('message', message => {
     } else if (messagecontent.startsWith(prefix+'startscrim')) {
         if (args[1] === "solo") {
             if (args[2] === "west")    {
+                if (!message.guild.voiceConnection) return message.reply("I must be in a voice call to start.")
                 const dispatcher = message.guild.voiceConnection.playStream(yt("https://www.youtube.com/watch?v=2I18638R4t4", {audioonly: true}));
                 Globdispatcher = dispatcher;
                 dispatcher.setVolumeLogarithmic(10 / 5)
@@ -77,7 +78,7 @@ client.on('message', message => {
             const messageURL = message.content.slice(5, messagecontent.length)
             
             if (messageURL.search("https://youtube")) {
-
+                if (!message.guild.voiceConnection) return message.reply("I must be in a voice call to play a song.")
                 const dispatcher = message.guild.voiceConnection.playStream(yt(messageURL, {audioonly: true}))
                 dispatcher.setVolumeLogarithmic(serverQueue.volume/5)
                 Globdispatcher = dispatcher;
