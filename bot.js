@@ -6,7 +6,7 @@ const yt = require('ytdl-core');
 const prefix = "!"
 
 const queue = new Map()
-const Globdispatcher = null
+var Globdispatcher = null
 
 
 
