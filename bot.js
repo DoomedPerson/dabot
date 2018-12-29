@@ -105,7 +105,6 @@ client.on('message', message => {
         Globdispatcher.pause();
     } else if (messagecontent.startsWith(prefix+'resume')) {
         if (!Globdispatcher) return
-        message.reply("heythere resume")
         Globdispatcher.resume();
     }
 }); 
