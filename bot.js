@@ -51,7 +51,7 @@ client.on('message', message => {
     if (messagecontent.slice(0, 5) === "!play") {
         if (message.guild.voiceConnection) {
             const messageURL = message.content.slice(5, messagecontent.length)
-            message.reply(messageURL)
+            
             if (messageURL.search("https://youtube")) {
 
                 const dispatcher = message.guild.voiceConnection.playStream(yt(messageURL, {audioonly: true}))
@@ -61,6 +61,19 @@ client.on('message', message => {
                 catch {
                   message.reply("Fail")
                 }
+            }
+        }
+    }
+    
+    if (messagecontent.slice(0,5) === "!stop") {
+        let adminRoleObject = member.guild.roles.find('name', 'Admin');
+        if (adminRoleObject) {
+            const dispatcher = message.guild.voiceConnection.stopStream()
+            try {
+                message.reply("Success")
+            }
+            catch {
+                message.reply("Fail")
             }
         }
     }
