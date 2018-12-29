@@ -3,6 +3,8 @@ const client = new Discord.Client();
 const FFMPEG = require('ffmpeg');
 const yt = require('ytdl-core');
 
+cost prefix = "!"
+
 
 
 client.on('ready', () => {
@@ -19,7 +21,7 @@ client.on('message', message => {
     let member = message.member
     let messagecontent = message.content.toLowerCase();
     
-    if (messagecontent === "!join") {
+    if (messagecontent.startsWith('$[prefix]join') {
         let adminRoleObject = member.guild.roles.find('name', 'Host');
         if (adminRoleObject) {
             if (message.member.voiceChannel) {
@@ -30,25 +32,19 @@ client.on('message', message => {
                 //.catch(message.reply("error"));
             }
         }
-    }
-    
-    if (messagecontent === "!leave") {
+    } else if (messagecontent.startsWith('$[prefix]leave') {
         let adminRoleObject = member.guild.roles.find('name', 'Host');
         if (adminRoleObject) {
             if (message.guild.voiceConnection) {
                 message.guild.voiceConnection.disconnect();
             }
         }
-    }
-    
-    if (messagecontent === "!startscrim solo west") {
+    } else if (messagecontent.startsWith('$[prefix]startscrim') {
         server = message.server
 
         
         const dispatcher = message.guild.voiceConnection.playStream(yt("https://www.youtube.com/watch?v=EYFUnNtEaM8", {audioonly: true}));
-    }
-    
-    if (messagecontent.slice(0, 5) === "!play") {
+    } else if (messagecontent.startsWith('$[prefix]play') {
         if (message.guild.voiceConnection) {
             const messageURL = message.content.slice(5, messagecontent.length)
             
@@ -63,18 +59,13 @@ client.on('message', message => {
                 }
             }
         }
-    }
-    
-    if (messagecontent.slice(0,5) === "!stop") {
+    } else if (messagecontent.startsWith('$[prefix]volume')) {
+        setVolumeLogarithmic(1)
+    } else if (messagecontent.startsWith('$[prefix]stop')) {
         let adminRoleObject = member.guild.roles.find('name', 'Admin');
         if (adminRoleObject) {
-            const dispatcher = message.guild.voiceConnection.stopStream()
-            try {
-                message.reply("Success")
-            }
-            catch {
-                message.reply("Fail")
-            }
+            const dispatcher = message.guild.voiceConnection
+            dispatcher.end();
         }
     }
 }); 
