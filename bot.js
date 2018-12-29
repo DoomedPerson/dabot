@@ -72,7 +72,7 @@ client.on('message', message => {
                   message.reply("Fail")
                 }
                 
-                dispatcher.setVolumeLogarithnic(serverQueue.volume/5)
+                dispatcher.setVolumeLogarithmic(serverQueue.volume/5)
             }
         }
     } else if (messagecontent.startsWith(prefix+'volume')) {
