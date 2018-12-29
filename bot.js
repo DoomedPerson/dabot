@@ -108,8 +108,5 @@ client.on('message', message => {
         Globdispatcher.resume()
     }
 }); 
-
-
-Globdispatcher.resume()
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
