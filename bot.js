@@ -30,8 +30,8 @@ client.on('message', message => {
     
     if (!serverQueue) {
         serverQueue = {
-            id = message.guild.id,
-            volume = 5
+            id: message.guild.id,
+            volume: 5
         }
     }
     
