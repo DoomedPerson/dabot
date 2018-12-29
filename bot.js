@@ -107,7 +107,8 @@ client.on('message', message => {
         if (!Globdispatcher) return
         Globdispatcher.resume();
     } else if (messagecontent.startsWith(prefix+'tts')) {
-        resume message.channel.send('/tts '+ args[1])
+        message.channel.send('/tts '+ args[1])
+        return message.delete_message()
     }
 }); 
 // THIS  MUST  BE  THIS  WAY
