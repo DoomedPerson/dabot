@@ -57,7 +57,7 @@ client.on('message', message => {
             var voiceChannel = message.member.voiceChannel
             if (!serverQueue) {
                 const queueConstruct = {
-                    voiceChannel = voiceChannel,
+                    voiceChannel: voiceChannel,
                     connection: null,
                     volume: 5,
                     playing: false
