@@ -4,7 +4,9 @@ const FFMPEG = require('ffmpeg');
 const yt = require('ytdl-core');
 
 const prefix = "!"
+
 var stats = {}
+var serverQueue = null
 
 var Globdispatcher = null
 
@@ -25,14 +27,13 @@ client.on('message', message => {
     let messagecontent = message.content.toLowerCase();
     
     
-    var serverQueue = stats[message.guild.id]
+    
     if (!serverQueue) {
         serverQueue = {
-            [message.guild.id],
+            id = message.guild.id,
             volume = 5
         }
     }
-    
     
     const args = messagecontent.split(' ');
     
