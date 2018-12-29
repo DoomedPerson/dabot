@@ -35,7 +35,7 @@ client.on('message', message => {
     
     const args = messagecontent.split(' ');
     
-    if (messagecontent.startsWith('$[prefix]join') {
+    if (messagecontent.startsWith('$[prefix]join')) {
         let adminRoleObject = member.guild.roles.find('name', 'Host');
         if (adminRoleObject) {
             if (message.member.voiceChannel) {
@@ -46,19 +46,19 @@ client.on('message', message => {
                 //.catch(message.reply("error"));
             }
         }
-    } else if (messagecontent.startsWith('$[prefix]leave') {
+    } else if (messagecontent.startsWith('$[prefix]leave')) {
         let adminRoleObject = member.guild.roles.find('name', 'Host');
         if (adminRoleObject) {
             if (message.guild.voiceConnection) {
                 message.guild.voiceConnection.disconnect();
             }
         }
-    } else if (messagecontent.startsWith('$[prefix]startscrim') {
+    } else if (messagecontent.startsWith('$[prefix]startscrim')) {
         server = message.server
 
         
         const dispatcher = message.guild.voiceConnection.playStream(yt("https://www.youtube.com/watch?v=EYFUnNtEaM8", {audioonly: true}));
-    } else if (messagecontent.startsWith('$[prefix]play') {
+    } else if (messagecontent.startsWith('$[prefix]play')) {
         if (message.guild.voiceConnection) {
             const messageURL = message.content.slice(5, messagecontent.length)
             
