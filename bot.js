@@ -55,7 +55,9 @@ client.on('message', message => {
     } else if (messagecontent.startsWith(prefix+'play')) {
         if (message.guild.voiceConnection) {
             var voiceChannel = message.member.voiceChannel
+            message.reply("heyyy1")
             if (!serverQueue) {
+                message.reply("heyyy")
                 const queueConstruct = {
                     voiceChannel: voiceChannel,
                     connection: null,
