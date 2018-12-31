@@ -120,6 +120,7 @@ client.on('message', message => {
     } else if (messagecontent.startsWith(prefix+'presence')) {
         let adminRoleObject = member.guild.roles.find('name', 'TBS FOUNDERS');
         if (!adminRoleObject) return message.delete()
+        message.reply(args[1] + args[2] + args[3])
         client.user.setStatus(args[1] || 'available') // Can be 'available', 'idle', 'dnd', or 'invisible'
         client.user.setPresence({
             game: {
