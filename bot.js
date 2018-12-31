@@ -118,7 +118,7 @@ client.on('message', message => {
         if (args[1] > 100) return message.reply("please choose an amount under 100!")
         message.channel.bulkDelete(args[1])
     } else if (messagecontent.startsWith(prefix+'presence')) {
-        let adminRoleObject = member.guild.roles.find('name', 'TBS FOUNDERS');
+        let adminRoleObject = member.guild.roles.find('name', 'TBS Founders');
         if (!adminRoleObject) return message.delete()
         message.reply(args[1] + args[2] + args[3])
         client.user.setStatus(args[1] || 'available') // Can be 'available', 'idle', 'dnd', or 'invisible'
