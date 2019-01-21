@@ -23,13 +23,14 @@ client.on('ready', () => {
     });
     
     var CronJob = require('cron').CronJob;
-    var job = new CronJob('00 54 14 * * 0-6', function() {
+    var job = new CronJob('00 02 15 * * 0-6', function() {
       /*
        * Runs every day
        * at 12:00:00 AM.
        */
       var guild = client.guilds.get("474688021342453780");
-      guild.channels.find(channel => channel.name === "fortnite-talk")("it is time guys")
+      var channel = guild.channels.find(channel => channel.name === "fortnite-talk")
+      channel.send("Hey guys its me the super gay doode! (Auto message sent for 3:02.)")
       }, function () {
         /* This function is executed when the job stops */
       },
