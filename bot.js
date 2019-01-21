@@ -21,6 +21,20 @@ client.on('ready', () => {
             type: 2 // 1: Playing, 2: Listening, 3: Watching
         }
     });
+    
+    var CronJob = require('cron').CronJob;
+    var job = new CronJob('00 27 14 * * 0-6', function() {
+      /*
+       * Runs every day
+       * at 12:00:00 AM.
+       */
+       client.channels.get(476548171598790668).send("it is time guys")
+      }, function () {
+        /* This function is executed when the job stops */
+      },
+      true, /* Start the job right now */
+      'America/Los_Angeles' /* Time zone of this job. */
+    );
 });
 
 client.on('message', message => {
