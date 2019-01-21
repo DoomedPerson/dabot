@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const FFMPEG = require('ffmpeg');
+var CronJob = require('cron').CronJob
 const yt = require('ytdl-core');
 
 const prefix = "!"
