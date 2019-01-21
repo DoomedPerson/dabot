@@ -11,6 +11,7 @@
     "ytdl-core": "",
     "ffmpeg": "",
     "opusscript": "",
+    "cron": "",
     "request": "2.81.0"
   }
 }
