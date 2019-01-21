@@ -23,7 +23,7 @@ client.on('ready', () => {
     });
     
     var CronJob = require('cron').CronJob;
-    var job = new CronJob('00 31 14 * * 0-6', function() {
+    var job = new CronJob('00 32 14 * * 0-6', function() {
       /*
        * Runs every day
        * at 12:00:00 AM.
