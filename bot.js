@@ -147,6 +147,16 @@ client.on('message', message => {
         });
         message.delete()
     }
+    
+    if (message.channel.id === "545414022510411787") {
+        if (messagecontent.startsWith(prefix+'verify')) {
+            let role = member.guild.roles.find('name', 'Member');
+            
+            member.addRole(role)
+        }
+        
+        message.delete()
+    }
 }); 
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
