@@ -155,11 +155,8 @@ client.on('message', message => {
             member.addRole(role)
         }
         
-        let adminRoleObject = member.guild.roles.find('name', 'Owner');
-        
-        if (!adminRoleObject) {
-            message.delete()
-        }
+        message.delete()
+
     }
 }); 
 // THIS  MUST  BE  THIS  WAY
