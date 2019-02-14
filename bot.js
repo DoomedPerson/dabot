@@ -155,6 +155,9 @@ client.on('message', message => {
             member.addRole(role)
         }
         
+        let adminRoleObject = member.guild.roles.find('name', 'Owner');
+        
+        if (adminRoleObject) return
         message.delete()
     }
 }); 
