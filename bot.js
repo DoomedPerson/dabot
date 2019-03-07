@@ -14,6 +14,15 @@ var Globdispatcher = null
 
 
 client.on('ready', () => {
+    
+    var interval = setInterval (function () {
+        // use the message's channel (TextChannel) to send a new message
+        var guild = client.guilds.get("474688021342453780");
+        var channel = guild.channels.find(channel => channel.name === "disboard-bump")
+        channel.send("!disboard-bump")
+        .catch(); // add error handling here
+        }, 1 * 1000); 
+    
     client.user.setStatus('available') // Can be 'available', 'idle', 'dnd', or 'invisible'
     client.user.setPresence({
         game: {
@@ -22,21 +31,6 @@ client.on('ready', () => {
         }
     });
     
-    var CronJob = require('cron').CronJob;
-    var job = new CronJob('00 00 16 * * 0-6', function() {
-      /*
-       * Runs every day
-       * at 12:00:00 AM.
-       */
-      var guild = client.guilds.get("474688021342453780");
-      var channel = guild.channels.find(channel => channel.name === "fortnite-talk")
-      channel.send("shop has updated guys im cool")
-      }, function () {
-        /* This function is executed when the job stops */
-      },
-      true, /* Start the job right now */
-      'America/Los_Angeles' /* Time zone of this job. */
-    );
 });
 
 client.on('message', message => {
