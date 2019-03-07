@@ -19,9 +19,9 @@ client.on('ready', () => {
         // use the message's channel (TextChannel) to send a new message
         var guild = client.guilds.get("474688021342453780");
         var channel = guild.channels.find(channel => channel.name === "disboard bump")
-        channel.send("!disboard-bump")
+        channel.send("!disboard bump")
         .catch(); // add error handling here
-        }, 1 * 30000);
+        }, 1 * 1000);
     
     client.user.setStatus('available') // Can be 'available', 'idle', 'dnd', or 'invisible'
     client.user.setPresence({
