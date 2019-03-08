@@ -142,8 +142,8 @@ client.on('message', message => {
         message.delete()
     }
     
-    if (message.channel.id === "545414022510411787") {
-        if (messagecontent.startsWith(prefix+'verify')) {
+    if (message.channel.id === "553654944297779212") {
+        if (messagecontent.startsWith(prefix+'verify') || messagecontent.startsWith('verify') || messagecontent.startsWith('vr')) {
             let role = member.guild.roles.find('name', 'Member');
             
             member.addRole(role)
