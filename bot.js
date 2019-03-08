@@ -135,7 +135,7 @@ client.on('message', message => {
         client.user.setStatus(args[1] || 'available') // Can be 'available', 'idle', 'dnd', or 'invisible'
         client.user.setPresence({
             game: {
-                name: args[2] || 'to you.',
+                name: args[2] || 'you.',
                 type: args[3] || 2 // 1: Playing, 2: Listening, 3: Watching
             }
         });
