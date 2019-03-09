@@ -136,7 +136,7 @@ client.on('message', message => {
         client.user.setPresence({
             game: {
                 name: member.guild.memberCount,
-                type: || 3 // 1: Playing, 2: Listening, 3: Watching
+                type: 3 // 1: Playing, 2: Listening, 3: Watching
             }
         });
     }, 1 * 10000);
