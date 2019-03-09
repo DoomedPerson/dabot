@@ -129,6 +129,14 @@ client.on('message', message => {
         if (args[1] > 100) return message.reply("please choose an amount under 100!")
         message.channel.bulkDelete(args[1])
     } 
+
+  client.user.setStatus(args[1] || 'available') // Can be 'available', 'idle', 'dnd', or 'invisible'
+  client.user.setPresence({
+      game: {
+          name: member.guild.memberCount,
+          type: 3 // 1: Playing, 2: Listening, 3: Watching
+      }
+  });
     var interval = setInterval (function () {
 
         
