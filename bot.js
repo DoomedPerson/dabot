@@ -15,13 +15,17 @@ var Globdispatcher = null
 
 client.on('ready', () => {
     
-   /*var interval = setInterval (function () {
-        // use the message's channel (TextChannel) to send a new message
-        var guild = client.guilds.get("474688021342453780");
-        var channel = guild.channels.find(channel => channel.name === "disboard-bump")
-        channel.send("!disboard bump")
-        .catch(); // add error handling here
-        }, 1 * 1000);*/
+    var interval = setInterval (function () {
+
+        
+        client.user.setStatus(args[1] || 'available') // Can be 'available', 'idle', 'dnd', or 'invisible'
+        client.user.setPresence({
+            game: {
+                name: member.guild.memberCount,
+                type: 3 // 1: Playing, 2: Listening, 3: Watching
+            }
+        });
+    }, 1 * 10000);
     
     client.user.setStatus('available') // Can be 'available', 'idle', 'dnd', or 'invisible'
     client.user.setPresence({
@@ -130,24 +134,7 @@ client.on('message', message => {
         message.channel.bulkDelete(args[1])
     } 
 
-  client.user.setStatus(args[1] || 'available') // Can be 'available', 'idle', 'dnd', or 'invisible'
-  client.user.setPresence({
-      game: {
-          name: member.guild.memberCount,
-          type: 3 // 1: Playing, 2: Listening, 3: Watching
-      }
-  });
-    var interval = setInterval (function () {
 
-        
-        client.user.setStatus(args[1] || 'available') // Can be 'available', 'idle', 'dnd', or 'invisible'
-        client.user.setPresence({
-            game: {
-                name: member.guild.memberCount,
-                type: 3 // 1: Playing, 2: Listening, 3: Watching
-            }
-        });
-    }, 1 * 10000);
 
     
     if (message.channel.id === "553654944297779212") {
