@@ -21,7 +21,7 @@ client.on('ready', () => {
         client.user.setStatus('available') // Can be 'available', 'idle', 'dnd', or 'invisible'
         client.user.setPresence({
             game: {
-                name: member.guild.memberCount,
+                name: client.user.guild.memberCount,
                 type: 3 // 1: Playing, 2: Listening, 3: Watching
             }
         });
