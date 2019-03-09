@@ -15,9 +15,9 @@ var Globdispatcher = null
 
 client.on('ready', () => {
     var server = client.guilds.get("474688021342453780")
-    var interval = setInterval (function () {
+    setInterval (function () {
 
-        
+        console.log("heyyyy")
         client.user.setStatus('available') // Can be 'available', 'idle', 'dnd', or 'invisible'
         client.user.setPresence({
             game: {
