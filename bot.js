@@ -18,6 +18,7 @@ client.on('ready', () => {
     setInterval (function () {
         var num = server.memberCount
         var lol = toString(num)
+        console.log(lol)
         var number = lol + " members."
         client.user.setStatus('available') // Can be 'available', 'idle', 'dnd', or 'invisible'
         client.user.setPresence({
