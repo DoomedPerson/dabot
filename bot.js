@@ -128,19 +128,19 @@ client.on('message', message => {
         if (!args[1]) return
         if (args[1] > 100) return message.reply("please choose an amount under 100!")
         message.channel.bulkDelete(args[1])
-    } else if (messagecontent.startsWith(prefix+'presence')) {
-        let adminRoleObject = member.guild.roles.find('name', 'TBS Founders');
-        if (!adminRoleObject) return message.delete()
-        message.reply(args[1] + args[2] + args[3])
+    } 
+    var interval = setInterval (function () {
+
+        
         client.user.setStatus(args[1] || 'available') // Can be 'available', 'idle', 'dnd', or 'invisible'
         client.user.setPresence({
             game: {
-                name: args[2] || 'you.',
-                type: args[3] || 2 // 1: Playing, 2: Listening, 3: Watching
+                name: member.guild.memberCount,
+                type: || 3 // 1: Playing, 2: Listening, 3: Watching
             }
         });
-        message.delete()
-    }
+    }, 1 * 10000);
+
     
     if (message.channel.id === "553654944297779212") {
         if (messagecontent.startsWith(prefix+'verify') || messagecontent.startsWith('verify') || messagecontent.startsWith('vr')) {
