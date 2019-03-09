@@ -16,7 +16,7 @@ var Globdispatcher = null
 client.on('ready', () => {
     var server = client.guilds.get("474688021342453780")
     setInterval (function () {
-        var num = server.memberCount
+        var num = server.memberCount - 5
         var lol = num.toString()
 
         var number = lol + " members."
