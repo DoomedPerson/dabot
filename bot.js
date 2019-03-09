@@ -18,7 +18,7 @@ client.on('ready', () => {
     var interval = setInterval (function () {
 
         
-        client.user.setStatus(args[1] || 'available') // Can be 'available', 'idle', 'dnd', or 'invisible'
+        client.user.setStatus('available') // Can be 'available', 'idle', 'dnd', or 'invisible'
         client.user.setPresence({
             game: {
                 name: member.guild.memberCount,
