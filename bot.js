@@ -16,12 +16,11 @@ var Globdispatcher = null
 client.on('ready', () => {
     var server = client.guilds.get("474688021342453780")
     setInterval (function () {
-
-        console.log(server.memberCount)
+        var number = toString(server.memberCount - 5)
         client.user.setStatus('available') // Can be 'available', 'idle', 'dnd', or 'invisible'
         client.user.setPresence({
             game: {
-                name: toString(server.memberCount),
+                name: number,
                 type: 3 // 1: Playing, 2: Listening, 3: Watching
             }
         });
