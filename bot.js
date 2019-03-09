@@ -17,8 +17,8 @@ client.on('ready', () => {
     var server = client.guilds.get("474688021342453780")
     setInterval (function () {
         var num = server.memberCount
-        var lol = toString(num)
-        console.log(lol)
+        var lol = num.toString()
+
         var number = lol + " members."
         client.user.setStatus('available') // Can be 'available', 'idle', 'dnd', or 'invisible'
         client.user.setPresence({
