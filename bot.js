@@ -27,13 +27,13 @@ client.on('ready', () => {
         });
     }, 1 * 10000);
     
-    client.user.setStatus('available') // Can be 'available', 'idle', 'dnd', or 'invisible'
+    /*client.user.setStatus('available') // Can be 'available', 'idle', 'dnd', or 'invisible'
     client.user.setPresence({
         game: {
             name: 'to you.',
             type: 2 // 1: Playing, 2: Listening, 3: Watching
         }
-    });
+    });*/
     
 });
 
