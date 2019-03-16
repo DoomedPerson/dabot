@@ -131,9 +131,12 @@ client.on('message', message => {
         if (!Globdispatcher) return
         Globdispatcher.resume();
     } else if (messagecontent.startsWith(prefix+'purge')) {
-        if (!args[1]) return
-        if (args[1] > 100) return message.reply("please choose an amount under 100!")
-        message.channel.bulkDelete(args[1])
+        let adminRoleObject = member.guild.roles.find('name', 'Admin');
+        if (adminRoleObject) {
+            if (!args[1]) return
+            if (args[1] > 100) return message.reply("please choose an amount under 100!")
+            message.channel.bulkDelete(args[1])
+        }
     } 
 
 
