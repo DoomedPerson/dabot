@@ -150,11 +150,11 @@ client.on('message', message => {
             message.delete()
         }
         
-        var mess = message.reply("Role added!")
+        /*var mess = message.reply("Role added!")
         
             setTimeout(function(){ 
                 mess.delete() 
-            }, 3000);
+            }, 3000);*/
         
 
     }
