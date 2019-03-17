@@ -145,10 +145,11 @@ client.on('message', message => {
             
             member.addRole(role)
         }
-        let adminRoleObject = member.guild.roles.find('name', 'Big Thicc Gnome');
+        /*let adminRoleObject = member.guild.roles.find('name', 'Big Thicc Gnome');
         if (!adminRoleObject) {
             message.delete()
-        }
+        }*/
+        message.delete()
         
         /*var mess = message.reply("Role added!")
         
