@@ -140,11 +140,7 @@ client.on('message', message => {
     } 
 
     if (message.channel.id === "539192953906790402") {
-        if (messagecontent.startsWith(prefix+'waiting') || messagecontent.startsWith('waiting') || messagecontent.startsWith('wait')) {
-            let role = member.guild.roles.find('name', 'Waiting List');
-            
-            member.addRole(role)
-        }
+
         /*let adminRoleObject = member.guild.roles.find('name', 'Big Thicc Gnome');
         if (!adminRoleObject) {
             message.delete()
@@ -158,7 +154,13 @@ client.on('message', message => {
             }, 3000);*/
         
 
-    }
+   }
+    
+   if (messagecontent.startsWith(prefix+'waiting') || messagecontent.startsWith('waiting') || messagecontent.startsWith('wait')) {
+    let role = member.guild.roles.find('name', 'Waiting List');
+   
+    member.addRole(role)
+   }
 
     
     if (message.channel.id === "553654944297779212") {
