@@ -11,7 +11,7 @@ var serverQueue = {}
 
 var Globdispatcher = null
 
-const blacklist = {
+const blacklist = [
     "beeyotch",
     "biatch",
     "bitch",
@@ -68,7 +68,7 @@ const blacklist = {
     "wetback",
     "whore",
     "wop"
-}
+]
 
 
 client.on('ready', () => {
