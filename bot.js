@@ -199,7 +199,7 @@ client.on('message', message => {
     
     var arrayLength = blacklist.length;
     for (var i = 0; i < arrayLength; i++) {
-        if (messagecontent.includes(blacklist[i]) {
+        if (messagecontent.includes(blacklist[i])) {
             message.delete()
         }
     }
