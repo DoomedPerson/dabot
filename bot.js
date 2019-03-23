@@ -201,6 +201,54 @@ client.on('message', message => {
         }
     } 
     
+     if (message.content.startsWith(prefix+"kick")) {
+        // Easy way to get member object though mentions.
+        let adminRoleObject = member.guild.roles.find('name', 'Admin');
+        let adminRoleObjects = member.guild.roles.find('name', 'Cofounder');
+        let specialAdmin = member.guild.roles.find('name', 'Leader')
+        let adm = member.guild.roles.find('name', 'Big Thicc Gnome')
+        if (adminRoleObject || adminRoleObjects || specialAdmin || adm) {
+            var member= message.mentions.members.first();
+            // Kick
+            member.kick().then((member) => {
+                // Successmessage
+                message.channel.send(":wave: " + member.displayName + " has been successfully kicked :point_right: ");
+            }).catch(() => {
+                 // Failmessage
+                message.channel.send("Unable to kick.");
+            });
+        }
+    }
+    
+     if (message.content.startsWith(prefix+"kick")) {
+        // Easy way to get member object though mentions.
+        let adminRoleObject = member.guild.roles.find('name', 'Cofounder');
+        let specialAdmin = member.guild.roles.find('name', 'Leader')
+        let adm = member.guild.roles.find('name', 'Big Thicc Gnome')
+        if (adminRoleObject || specialAdmin || adm) {
+            var member= message.mentions.members.first();
+            // Kick
+            member.kick().then((member) => {
+                // Successmessage
+                message.channel.send(":wave: " + member.displayName + " has been successfully kicked :point_right: ");
+            }).catch(() => {
+                 // Failmessage
+                message.channel.send("Unable to kick.");
+            });
+        }
+    }
+    
+    if(message.mentions.users.size > 25) {
+        member.kick().then((member) => {
+         // Successmessage
+        message.channel.send(":wave: " + member.displayName + " has been kicked for pinging a large amount of people without permission! :point_right: ");
+        }).catch(() => {
+
+        });
+    
+    }
+    
+    
     var arrayLength = blacklist.length;
     for (var i = 0; i < arrayLength; i++) {
         if (messagecontent.includes(blacklist[i])) {
