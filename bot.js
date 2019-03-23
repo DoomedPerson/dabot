@@ -208,11 +208,11 @@ client.on('message', message => {
         let specialAdmin = member.guild.roles.find('name', 'Leader')
         let adm = member.guild.roles.find('name', 'Big Thicc Gnome')
         if (adminRoleObject || adminRoleObjects || specialAdmin || adm) {
-            var member= message.mentions.members.first();
+            var memberr = message.mentions.members.first();
             // Kick
-            member.kick().then((member) => {
+            memberr.kick().then((memberr) => {
                 // Successmessage
-                message.channel.send(":wave: " + member.displayName + " has been successfully kicked :point_right: ");
+                message.channel.send(":wave: " + memberr.displayName + " has been successfully kicked :point_right: ");
             }).catch(() => {
                  // Failmessage
                 message.channel.send("Unable to kick.");
@@ -226,11 +226,11 @@ client.on('message', message => {
         let specialAdmin = member.guild.roles.find('name', 'Leader')
         let adm = member.guild.roles.find('name', 'Big Thicc Gnome')
         if (adminRoleObject || specialAdmin || adm) {
-            var member= message.mentions.members.first();
+            var membere = message.mentions.members.first();
             // Kick
-            member.kick().then((member) => {
+            membere.kick().then((membere) => {
                 // Successmessage
-                message.channel.send(":wave: " + member.displayName + " has been successfully kicked :point_right: ");
+                message.channel.send(":wave: " + membere.displayName + " has been successfully kicked :point_right: ");
             }).catch(() => {
                  // Failmessage
                 message.channel.send("Unable to kick.");
