@@ -209,7 +209,7 @@ client.on('message', message => {
         }
     }
     
-     if (message.content.startsWith(prefix+"kick")) {
+     /*if (message.content.startsWith(prefix+"kick")) {
         // Easy way to get member object though mentions.
         let adminRoleObject = member.guild.roles.find('name', 'Cofounder');
         let specialAdmin = member.guild.roles.find('name', 'Leader')
@@ -224,7 +224,7 @@ client.on('message', message => {
                  // Failmessage
                 message.channel.send("Unable to kick.");
             });
-        }
+        }*/
     } else if (messagecontent.startsWith(prefix+'warn')) {
         let adminRoleObject = member.guild.roles.find('name', 'Admin');
         let adminRoleObjects = member.guild.roles.find('name', 'Cofounder');
@@ -233,10 +233,10 @@ client.on('message', message => {
         let wUser = message.mentions.users.first() || message.guild.members.get(args[0])
         if (adminRoleObject || adminRoleObjects || specialAdmin || adm) {
             if (!warns[wUser.id]) {
-                warns.push({
+                warns.push(
                     key:   wUser.id,
                     value: 0
-                });
+                );
             }
             
             warns[wUser.id] += 1
