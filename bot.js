@@ -230,7 +230,7 @@ client.on('message', message => {
         let adminRoleObjects = member.guild.roles.find('name', 'Cofounder');
         let specialAdmin = member.guild.roles.find('name', 'Leader')
         let adm = member.guild.roles.find('name', 'Big Thicc Gnome')
-        let wUser = message.mentions.users.first() or message.guild.members.get(args[0])
+        let wUser = message.mentions.users.first() || message.guild.members.get(args[0])
         if (adminRoleObject || adminRoleObjects || specialAdmin || adm) {
             if (!warns[wUser.id]) {
                 warns.push({
@@ -246,7 +246,7 @@ client.on('message', message => {
                 .setAuthor(message.author.username, message.author.avatarURL)
                 .setTitle(`You've been warned in ${message.guild.name}`)
                 .addField('Warned by', message.author.tag)
-                .addField('Reason', args[1] or "")
+                .addField('Reason', args[1] || "")
                 .setTimestamp();
             mentioned.send(warningEmbed); // DMs the user the above embed!
         }
