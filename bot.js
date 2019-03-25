@@ -245,7 +245,7 @@ client.on('message', message => {
                 .addField('Warned by', message.author.tag)
                 .addField('Reason', args[1] || "")
                 .setTimestamp();
-            mentioned.send(warningEmbed); // DMs the user the above embed!
+            wUser.send(warningEmbed); // DMs the user the above embed!
         }
     }
     if(message.mentions.users.size > 25) {
