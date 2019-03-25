@@ -247,7 +247,7 @@ client.on('message', message => {
                 .setTimestamp();
             mentioned.send(warningEmbed); // DMs the user the above embed!
         }
-    
+    }
     if(message.mentions.users.size > 25) {
         member.kick().then((member) => {
          // Successmessage
