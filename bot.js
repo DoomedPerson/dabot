@@ -246,7 +246,7 @@ client.on('message', message => {
                     .addField('Warned by', message.author.tag)
                     .addField('Reason', args[1] || "not given.")
                     .setTimestamp();
-                wUser.send({ embed: <warningEmbed> }); // DMs the user the above embed!
+                wUser.send({ embed: warningEmbed }); // DMs the user the above embed!
             }
         }
     }
