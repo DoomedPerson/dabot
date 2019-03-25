@@ -230,7 +230,7 @@ client.on('message', message => {
         let adminRoleObjects = member.guild.roles.find('name', 'Cofounder');
         let specialAdmin = member.guild.roles.find('name', 'Leader')
         let adm = member.guild.roles.find('name', 'Big Thicc Gnome')
-        let wUser = message.mentions.users.first() || message.guild.members.get(args[0])
+        let wUser = message.mentions.users.first() || message.guild.members.get(args[1])
         if (wUser) {
             if (adminRoleObject || adminRoleObjects || specialAdmin || adm) {
                 if (!warns[wUser.id]) {
@@ -243,8 +243,8 @@ client.on('message', message => {
                     .setColor("36393E")
                     .setAuthor(message.author.username, message.author.avatarURL)
                     .setTitle(`You've been warned in ${message.guild.name}`)
-                    .addField('Warned by', message.author.tag)
-                    .addField('Reason', args[1] || "not given.")
+                    .addField('Warned by', message.author.name)
+                    .addField('Reason', args[2] || "not given.")
                     .setTimestamp();
                 wUser.send({ embed: warningEmbed }); // DMs the user the above embed!
             }
