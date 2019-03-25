@@ -231,21 +231,23 @@ client.on('message', message => {
         let specialAdmin = member.guild.roles.find('name', 'Leader')
         let adm = member.guild.roles.find('name', 'Big Thicc Gnome')
         let wUser = message.mentions.users.first() || message.guild.members.get(args[0])
-        if (adminRoleObject || adminRoleObjects || specialAdmin || adm) {
-            if (!warns[wUser.id]) {
-                warns[wUser.id] = 0
+        if (wUser) {
+            if (adminRoleObject || adminRoleObjects || specialAdmin || adm) {
+                if (!warns[wUser.id]) {
+                    warns[wUser.id] = 0
+                }
+
+                warns[wUser.id] += 1
+                message.reply(wUser.tag + "has been warned. This is their " + warns[wUser.id] + "warn.")
+                var warningEmbed = new Discord.RichEmbed() // Creates the embed that's DM'ed to the user when their warned!
+                    .setColor("36393E")
+                    .setAuthor(message.author.username, message.author.avatarURL)
+                    .setTitle(`You've been warned in ${message.guild.name}`)
+                    .addField('Warned by', message.author.tag)
+                    .addField('Reason', args[1] || "")
+                    .setTimestamp();
+                wUser.send(warningEmbed); // DMs the user the above embed!
             }
-            
-            warns[wUser.id] += 1
-            message.reply(wUser.tag + "has been warned. This is their " + warns[wUser.id] + "warn.")
-            var warningEmbed = new Discord.RichEmbed() // Creates the embed that's DM'ed to the user when their warned!
-                .setColor("36393E")
-                .setAuthor(message.author.username, message.author.avatarURL)
-                .setTitle(`You've been warned in ${message.guild.name}`)
-                .addField('Warned by', message.author.tag)
-                .addField('Reason', args[1] || "")
-                .setTimestamp();
-            wUser.send(warningEmbed); // DMs the user the above embed!
         }
     }
     if(message.mentions.users.size > 25) {
