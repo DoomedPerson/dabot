@@ -45,8 +45,6 @@ const blacklist = [
     "nigguh",
     "pussie",
     "pussy",
-    "raghead",
-    "retard",
     "slut",
     "spade",
     "spic",
