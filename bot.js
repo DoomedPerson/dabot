@@ -9,26 +9,21 @@ const prefix = "!"
 var stats = {}
 var serverQueue = {}
 
+var warns = {}
+
 var Globdispatcher = null
 
 const blacklist = [
     "beeyotch",
     "biatch",
     "bitch",
-    "chinaman",
-    "chinamen",
     "chink",
     "crip",
     "cunt",
-    "dago",
-    "daygo",
     "dego",
     "dick",
-    "dyke",
     "fag",
     "fatass",
-    "fatso",
-    "gash",
     "ass",
     "nig ga",
     "nig ger",
@@ -38,40 +33,30 @@ const blacklist = [
     "gyp",
     "halfbreed",
     "half-breed",
-    "homo",
     "hooker",
     "jap",
     "kike",
     "kraut",
-    "lame",
     "lardass",
     "lesbo",
-    "lunatic",
     "negro",
     "nigga",
     "nigger",
     "nigguh",
-    "paki",
-    "pickaninnie",
-    "pickaninny",
     "pussie",
     "pussy",
     "raghead",
     "retard",
-    "skank",
     "slut",
     "spade",
     "spic",
-    "spook",
     "tard",
     "tits",
     "titt",
     "trannie",
     "tranny",
-    "twat",
     "wetback",
     "whore",
-    "wop"
 ]
 
 
@@ -111,6 +96,12 @@ client.on('message', message => {
         serverQueue = {
             id: message.guild.id,
             volume: 5
+        }
+    }
+    
+    if (!warns) {
+        warns = {
+        
         }
     }
     
@@ -236,7 +227,31 @@ client.on('message', message => {
                 message.channel.send("Unable to kick.");
             });
         }
-    }
+    } else if (messagecontent.startsWith(prefix+'warn')) {
+        let adminRoleObject = member.guild.roles.find('name', 'Admin');
+        let adminRoleObjects = member.guild.roles.find('name', 'Cofounder');
+        let specialAdmin = member.guild.roles.find('name', 'Leader')
+        let adm = member.guild.roles.find('name', 'Big Thicc Gnome')
+        let wUser = message.mentions.users.first() or message.guild.members.get(args[0])
+        if (adminRoleObject || adminRoleObjects || specialAdmin || adm) {
+            if (!warns[wUser.id]) {
+                warns.push({
+                    key:   wUser.id,
+                    value: 0
+                });
+            }
+            
+            warns[wUser.id] += 1
+            message.reply(wUser.tag + "has been warned. This is their " + warns[wUser.id] + "warn.")
+            var warningEmbed = new Discord.RichEmbed() // Creates the embed that's DM'ed to the user when their warned!
+                .setColor(embedColor)
+                .setAuthor(message.author.username, message.author.avatarURL)
+                .setTitle(`You've been warned in ${message.guild.name}`)
+                .addField('Warned by', message.author.tag)
+                .addField('Reason', args[1] or "")
+                .setTimestamp();
+            mentioned.send(warningEmbed); // DMs the user the above embed!
+        }
     
     if(message.mentions.users.size > 25) {
         member.kick().then((member) => {
