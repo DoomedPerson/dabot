@@ -238,19 +238,19 @@ client.on('message', message => {
                 }
 
                 warns[wUser.id] += 1
-                message.reply(wUser.tag + "has been warned. This is their " + warns[wUser.id] + "warn.")
+                message.reply(wUser.tag + " has been warned. This is warn number " + warns[wUser.id])
                 var warningEmbed = new Discord.RichEmbed() // Creates the embed that's DM'ed to the user when their warned!
                     .setColor("36393E")
                     .setAuthor(message.author.username, message.author.avatarURL)
                     .setTitle(`You've been warned in ${message.guild.name}`)
                     .addField('Warned by', message.author.tag)
-                    .addField('Reason', args[1] || "")
+                    .addField('Reason', args[1] || "not given.")
                     .setTimestamp();
                 wUser.send(warningEmbed); // DMs the user the above embed!
             }
         }
     }
-    if(message.mentions.users.size > 25) {
+    if(message.mentions.users.size > 25 && !message.author.perms.has("MENTION_EVERYONE")) {
         member.kick().then((member) => {
          // Successmessage
         message.channel.send(":wave: " + member.displayName + " has been kicked for pinging a large amount of people without permission! :point_right: ");
