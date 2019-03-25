@@ -233,7 +233,7 @@ client.on('message', message => {
         let wUser = message.mentions.users.first() || message.guild.members.get(args[0])
         if (adminRoleObject || adminRoleObjects || specialAdmin || adm) {
             if (!warns[wUser.id]) {
-                warns[wUser.id] = value: 0
+                warns[wUser.id] = 0
             }
             
             warns[wUser.id] += 1
