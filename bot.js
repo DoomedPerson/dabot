@@ -207,7 +207,7 @@ client.on('message', message => {
                 message.channel.send("Unable to kick.");
             });
         }
-    }
+    //}
     
      /*if (message.content.startsWith(prefix+"kick")) {
         // Easy way to get member object though mentions.
