@@ -237,8 +237,8 @@ client.on('message', message => {
                     warns[wUser.id] = 0
                 }
 
-                warns[wUser.id] += 1
-                message.reply(wUser.tag + " has been warned. This is warn number " + warns[wUser.id])
+                warns[wUser.id] = warns[wUser.id] +  1
+                message.reply(wUser.tag + " has been warned. This is warn number " + warns[wUser.id] + ".")
                 var warningEmbed = new Discord.RichEmbed() // Creates the embed that's DM'ed to the user when their warned!
                     .setColor("36393E")
                     .setAuthor(message.author.username, message.author.avatarURL)
@@ -246,7 +246,7 @@ client.on('message', message => {
                     .addField('Warned by', message.author.tag)
                     .addField('Reason', args[1] || "not given.")
                     .setTimestamp();
-                wUser.send(warningEmbed); // DMs the user the above embed!
+                wUser.send({ embed: <warningEmbed> }); // DMs the user the above embed!
             }
         }
     }
