@@ -124,7 +124,7 @@ client.on('message', message => {
             }
         }
     } else if (messagecontent.startsWith(prefix+'scrim')) {
-        embed = {"fields":[{"name":"Custom Code","value":"{code}","inline":false},{"name":"Mode","value":"{mode}","inline":true},{"name":"Region ","value":"{yo mama}","inline":true},{"name":"Rules","value":"{Rules}","inline":true},{"name":"Remember","value":"{stuff to remember}","inline":false},{"name":"Host","value":"host thingsy yeah -- [Watch the Stream](https://www.twitch.com/ \"Check out the hosts stream.\")","inline":false},{"name":"Report","value":"!report{or however you want this to work}","inline":false}],"title":"Custom Match Making Starting Soon","color":7223097}
+        exampleEmbed = {"fields":[{"name":"Custom Code","value":"{code}","inline":false},{"name":"Mode","value":"{mode}","inline":true},{"name":"Region ","value":"{yo mama}","inline":true},{"name":"Rules","value":"{Rules}","inline":true},{"name":"Remember","value":"{stuff to remember}","inline":false},{"name":"Host","value":"host thingsy yeah -- [Watch the Stream](https://www.twitch.com/ \"Check out the hosts stream.\")","inline":false},{"name":"Report","value":"!report{or however you want this to work}","inline":false}],"title":"Custom Match Making Starting Soon","color":7223097}
                
         message.send({ embed: exampleEmbed });
         return
