@@ -123,22 +123,10 @@ client.on('message', message => {
                 message.guild.voiceConnection.disconnect();
             }
         }
-    } else if (messagecontent.startsWith(prefix+'startscrim')) {
-        if (args[1] === "solo") {
-            if (args[2] === "west")    {
-                if (!message.guild.voiceConnection) return message.reply("I must be in a voice call to start.")
-                const dispatcher = message.guild.voiceConnection.playStream(yt("https://www.youtube.com/watch?v=2I18638R4t4", {audioonly: true}));
-                Globdispatcher = dispatcher;
-                dispatcher.setVolumeLogarithmic(10 / 5)
-                try {
-                  message.reply("Starting scrims!")
-                }
-                catch {
-                  message.reply("Fail")
-                }
-            }
-        }
-
+    } else if (messagecontent.startsWith(prefix+'scrim')) {
+        embed = {"fields":[{"name":"Custom Code","value":"{code}","inline":false},{"name":"Mode","value":"{mode}","inline":true},{"name":"Region ","value":"{yo mama}","inline":true},{"name":"Rules","value":"{Rules}","inline":true},{"name":"Remember","value":"{stuff to remember}","inline":false},{"name":"Host","value":"host thingsy yeah -- [Watch the Stream](https://www.twitch.com/ \"Check out the hosts stream.\")","inline":false},{"name":"Report","value":"!report{or however you want this to work}","inline":false}],"title":"Custom Match Making Starting Soon","color":7223097}
+               
+        message.send({ embed: exampleEmbed });
         return
     } else if (messagecontent.startsWith(prefix+'play')) {
         if (message.guild.voiceConnection) {
